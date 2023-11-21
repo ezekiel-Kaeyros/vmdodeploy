@@ -1,0 +1,75 @@
+<div class="create-course">
+    <div class="intro">
+        <h2 class="mat-display-2">Projekt bearbeiten</h2>
+        
+    </div>
+    <div class="form">
+        <mat-card>
+            <div mat-icon-button mat-card-avatar class="list" routerLink="/projects/list">
+                <mat-icon>list</mat-icon>
+            </div>
+            <mat-card-header>
+                <button mat-icon-button mat-card-avatar>
+                    <mat-icon>save_as</mat-icon>
+                </button>
+            </mat-card-header>
+            <mat-card-content *ngIf="project">
+                <mat-card-title class="mat-display-1">
+                    <span>Projekt anlegen</span>
+                </mat-card-title>
+                <form [formGroup]="projectForm" (ngSubmit)="submitForm()">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Projekttitel</mat-label>
+                            <input matInput formControlName="title" placeholder="Your title here">
+                            <mat-hint align="end">Min 4 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Laufzeit</mat-label>
+                            <input matInput formControlName="duration" placeholder="Your duration here">
+                            <mat-hint align="end">Min 4 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Infotext</mat-label>
+                            <textarea matInput formControlName="description" cols="30" rows="10"></textarea>
+                            <mat-hint align="end">Min 10 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="upload">
+                        <input #projektlogo hidden type="file" onclick="this.value=null" accept="image/*" (change)="selectLogoProject($event)" />
+                        <button type="button" mat-stroked-button (click)="projektlogo.click()">Projektlogo</button>
+                        <img [src]="project.photoUrl" class="preview" />
+                    </div>
+                    <div class="upload">
+                        <input #kooperationspartner hidden type="file" onclick="this.value=null" accept="image/*" (change)="selectLogoPatner($event)" />
+                        <button type="button" mat-stroked-button (click)="kooperationspartner.click()">Logos Kooperationspartner</button>
+                        <img [src]="project.logoUrl" class="preview" />
+                    </div>
+                    <div class="upload">
+                        <input #forderer hidden type="file" onclick="this.value=null" accept="image/*" (change)="selectLogoSponsor($event)" />
+                        <button type="button" mat-stroked-button (click)="forderer.click()">Logos Förderer</button>
+                        <img [src]="project.sponsorLogoUrl" class="preview" />
+                    </div>
+    
+                    <mat-card-actions>
+                        <button
+                            mat-flat-button
+                            matTooltip="Save new project"
+                            matTooltipShowDelay="500"
+                            matTooltipHideDelay="1000"
+                            [disabled]="projectForm.invalid">
+                        Bearbeiten
+                        </button>
+                        <button mat-flat-button routerLink="/projects/list" color="accent">
+                            Cancel
+                        </button>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

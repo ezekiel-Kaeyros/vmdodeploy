@@ -1,0 +1,214 @@
+<!-- <app-header></app-header> -->
+
+<!-- <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+<div class="container tabs">
+  <div class="row">
+    <c-nav variant="tabs">
+      <a [active]="true" [cTabContent]="tabContent" [tabPaneIdx]="0" cNavLink><img src="../assets/icons/translation.png"
+          alt="" (click)="play()"><span class="nav1">Audio</span> </a>
+      <a [cTabContent]="tabContent" [tabPaneIdx]="1" cNavLink class="nav21"
+        (click)="fileUpload.click()"><img src="../assets/icons/photo.png"><span class="nav22">Images</span></a>
+      <a [cTabContent]="tabContent" [tabPaneIdx]="2" cNavLink class="nav31"
+        (click)="fileUpload.click()"><img src="../assets/icons/docs2.png" alt=""><span class="nav32">Documents</span></a>
+    </c-nav>
+  </div>
+
+  <c-tab-content #tabContent="cTabContent">
+    <c-tab-pane class="p-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form">
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">Detect Language
+              </label>
+            </div>
+            <div class="form-group">
+              <textarea #input type="text" id="text" name="texte" class="form-control" rows="3">
+                {{speech.text}}
+              </textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="startService()">Start</span>
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="stopService()">Stop</span>
+                <span class="btn" style="margin: 10px; cursor: pointer;" (click)="load_tanslate()">Translate</span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form">
+            <div class="form-group col-md-12">
+              <select id="inputState" class="form-control" (change)="selectLanguage($event)">
+                <option selected>Choose Language</option>
+                <option value="{{lng.name}}" *ngFor="let lng of voices">{{lng.name}}</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="translate" rows="3" placeholder="Translation">
+                              {{textFound}}
+                            </textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="play()">Play</span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </c-tab-pane>
+
+    <c-tab-pane class="p-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form">
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">Detect Language
+              </label>
+            </div>
+            <div class="form-group">
+              <textarea #input type="text" id="text" name="texte" class="form-control" rows="3">
+                              {{speech.text}}
+                            </textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="startService()">Start</span>
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="stopService()">Stop</span>
+                <span class="btn" style="margin: 10px; cursor: pointer;" (click)="load_tanslate()">Translate</span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form">
+            <div class="form-group col-md-12">
+              <select id="inputState" class="form-control" (change)="selectLanguage($event)">
+                <option selected>Choose Language</option>
+                <option value="{{lng.lang}}" *ngFor="let lng of voices">{{lng.name}}</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="translate" rows="3" placeholder="Translation">
+                              {{textFound}}
+                            </textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlTextarea1" class="form-control">
+                <span class="btn" style="margin: 10px; cursor: pointer;"
+                  (click)="play()">Play</span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </c-tab-pane>
+
+    <c-tab-pane class="p-3">
+      <div class="row container form">
+        <div class="form-group col-md-6">
+          <label for="exampleFormControlTextarea1" class="form-control">Detect Language</label>
+        </div>
+        <div class="form-group col-md-6">
+          <select id="inputState" class="form-control">
+            <option selected>Choose Language</option>
+            <option>German</option>
+            <option>English</option>
+            <option>French</option>
+            <option>Spain</option>
+          </select>
+        </div>
+      </div>
+      <div class="row container">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="choose-image">Choose a document</h3>
+            <h3 class="text-image text-muted">Upload a .docx, .pdf, .pptx, or .xlsx.</h3>
+            <div class="upload-btn-wrapper">
+              <button class="btn" (click)="fileUpload.click()">Browse your computer</button>
+              <input type="file" name="myfile" accept=".pdf,.docx,.pptx,.xlsx" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </c-tab-pane>
+  </c-tab-content>
+</div> -->
+
+<div id="myModal" class="modal" #modal>
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="main">
+      <div class="container-c">
+        <div class="progress-circular-c" #myDiv> 
+          <span class="value" #value>0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="translation-container">
+  <h2 class="mat-display-2">Toolbox</h2>
+  <div class="translation">
+    <div class="translation__header">
+      <ul class="tool-nav">
+        <li class="text-item">
+            <a mat-stroked-button routerLink="text" routerLinkActive="['active']">
+              <mat-icon>translate</mat-icon> Text
+            </a>
+        </li>
+        <li>
+            <a mat-stroked-button routerLink="audio" routerLinkActive="['active']">
+              <mat-icon>mic</mat-icon> Audio
+            </a>
+        </li>
+        <li>
+            <a mat-stroked-button routerLink="image" routerLinkActive="['active']">
+              <mat-icon>image</mat-icon> Image
+            </a>
+        </li>
+        <li>
+            <a mat-stroked-button routerLink="document" routerLinkActive="['active']">
+              <mat-icon>description</mat-icon> Document
+            </a>
+        </li>
+        <li>
+            <a mat-stroked-button routerLink="scan" routerLinkActive="['active']">
+              <mat-icon>qr_code_2</mat-icon> Scan
+            </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="translation__textarea">
+      <div class="languages">
+        <button mat-button>Detect language</button>
+        <button mat-button>English</button>
+        <button mat-button>Deutsch</button>
+        <button mat-button>French</button>
+        <button mat-button mat-icon-button>
+          <mat-icon>expand_more</mat-icon>
+        </button>
+      </div>
+      <router-outlet></router-outlet>
+  </div>
+  </div>
+</div>

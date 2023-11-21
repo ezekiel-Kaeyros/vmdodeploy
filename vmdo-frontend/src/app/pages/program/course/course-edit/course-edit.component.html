@@ -1,0 +1,63 @@
+<div class="create-course">
+    <div class="intro">
+        <h2 class="mat-display-2">Edit program in the form bellow</h2>
+    </div>
+    <div class="form">
+        <mat-card>
+            <mat-card-header>
+                <button mat-icon-button mat-card-avatar>
+                    <mat-icon>save_as</mat-icon>
+                </button>
+            </mat-card-header>
+            <mat-card-content *ngIf="course">
+                <mat-card-title class="mat-display-1">
+                    <span>Edit course</span>
+                </mat-card-title>
+                <form [formGroup]="courseForm" (ngSubmit)="submitForm()">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title" placeholder="Your title here">
+                            <mat-hint align="end">Min 4 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Description</mat-label>
+                            <textarea matInput formControlName="description" cols="30" rows="10"></textarea>
+                            <mat-hint align="end">Min 10 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Link to read</mat-label>
+                            <input type="url" matInput formControlName="link" placeholder="Your URL course here">
+                            <mat-hint align="end">Only accept valid URL</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Author</mat-label>
+                            <input matInput formControlName="author" placeholder="Your name here">
+                            <mat-hint align="end">Min 4 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+    
+                    <mat-card-actions>
+                        <button
+                            mat-raised-button
+                            matTooltip="Save your changes"
+                            matTooltipShowDelay="500"
+                            matTooltipHideDelay="1000"
+                            [disabled]="courseForm.invalid">
+                            Update
+                        </button>
+                        <button mat-flat-button routerLink="/courses" color="accent">
+                            Cancel
+                        </button>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
